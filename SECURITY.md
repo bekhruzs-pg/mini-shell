@@ -59,11 +59,11 @@ MyShell implements multiple layers of security to protect against common shell v
 ### How to Report
 If you discover a security vulnerability in MyShell, please report it responsibly:
 
-1. **DO NOT** create a public GitHub issue for security vulnerabilities
-2. Contact the maintainers privately through one of these methods:
-   - Email: [contact@fnbubbles420.org] (contact@fnbubbles420.org)
-   - Create a private security advisory on GitHub
-   - Direct message to project maintainers
+1. **DO NOT** create a public GitHub issue for security vulnerabilities  
+2. Contact the maintainers privately through one of these methods:  
+   - Email: [contact@fnbubbles420.org](mailto:contact@fnbubbles420.org)  
+   - Create a private security advisory on GitHub  
+   - Direct message to project maintainers  
 
 ### What to Include
 When reporting a vulnerability, please include:
@@ -111,97 +111,3 @@ When reporting a vulnerability, please include:
 The project includes comprehensive security tests:
 ```bash
 python test_shell.py
-```
-
-### Test Coverage
-Security tests validate:
-- Input sanitization functions
-- Path traversal prevention
-- Command injection prevention
-- Environment variable validation
-- File redirection security
-- Error handling security
-
-### Manual Security Testing
-Recommended manual security testing:
-1. Test with various injection payloads
-2. Verify path traversal prevention
-3. Test file redirection restrictions
-4. Validate environment variable handling
-5. Test error condition handling
-
-## Security Monitoring
-
-### Logging
-- Consider enabling command logging for security monitoring
-- Monitor file access patterns
-- Track environment variable changes
-- Log security-related errors
-
-### Indicators of Compromise
-Watch for:
-- Repeated failed command attempts
-- Unusual file access patterns
-- Unexpected environment variable changes
-- Error messages indicating attack attempts
-
-## Security Dependencies
-
-### Required Dependencies
-- **Python 3.6+**: Use supported Python versions with security updates
-- **shlex**: Built-in library for safe command parsing
-- **pathlib**: Modern path handling library
-
-### Optional Dependencies
-- **readline**: For command history (ensure it's up to date)
-
-### Dependency Security
-- Regularly update Python to the latest stable version
-- Monitor security advisories for dependencies
-- Use `pip check` to verify dependency integrity
-
-## Compliance and Standards
-
-### Security Standards
-This project follows:
-- OWASP secure coding practices
-- Python security best practices
-- Shell security guidelines
-- Input validation standards
-
-### Security Controls
-Implemented security controls:
-- **Input Validation**: All user input is validated
-- **Output Encoding**: Safe output handling
-- **Error Handling**: Secure error messages
-- **Access Control**: Restricted file and system access
-
-## Changelog - Security Updates
-
-### Version 2.0.0 - Security Hardening Release
-- Added comprehensive input sanitization
-- Implemented path traversal prevention
-- Enhanced command execution security
-- Added environment variable protection
-- Improved error handling security
-
-### Version 1.0.0 - Initial Release
-- ⚠️ **DEPRECATED**: Contains critical security vulnerabilities
-- **DO NOT USE** in production environments
-- Vulnerable to command injection, path traversal, and other attacks
-
-## Additional Resources
-
-### Security Documentation
-- [SECURITY_ANALYSIS.md](SECURITY_ANALYSIS.md) - Detailed security analysis
-- [README.md](README.md) - General project documentation
-- Test files for security validation examples
-
-### External Resources
-- [OWASP Command Injection Prevention](https://owasp.org/www-community/attacks/Command_Injection)
-- [Python Security Guidelines](https://python.org/dev/security/)
-- [Secure Shell Scripting Best Practices](https://www.cyberciti.biz/tips/shell-scripting-security.html)
-
----
-
-**Important**: This shell is designed for educational and development purposes. Always follow your organization's security policies and conduct appropriate security assessments before use in production environments.
