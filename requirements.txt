@@ -1,0 +1,16 @@
+# MyShell - Secure Python Shell Implementation
+# This project uses only Python standard library modules
+
+# No external dependencies required!
+# All functionality is built using Python's standard library:
+# - os, sys, subprocess, shlex, re, pathlib, string
+
+# Optional: readline for command history (Unix/Linux only)
+# readline is built into Python on Unix/Linux systems
+# On Windows, it's not available but the shell works without it
+
+# If you want readline support on Windows, you can install:
+# pyreadline3>=3.4.0
+
+# Python version requirement:
+# Requires Python 3.11 or higher
