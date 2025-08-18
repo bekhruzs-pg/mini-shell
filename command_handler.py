@@ -70,14 +70,14 @@ class CommandHandler:
             os.mkdir(path)
             return f"New folder created! [{os.getcwd()}\\{path}]"
         except OSError:
-            return f"Folder name systax is incorrect: {path}"
+            return f"Folder name syntax is incorrect: {path}"
     def handle_rmdir(self, commands):
         try:
             path = " ".join(commands[1:]).replace("\"", "") if "\"" in " ".join(commands[1:]) else commands[1:] 
             os.rmdir(path)
             return f"Folder deleted! [{os.getcwd()}\\{path}]"
         except OSError:
-            return f"Folder name systax is incorrect: {path}"
+            return f"Folder name syntax is incorrect: {path}"
     def handle_others(self, commands):
         output = sp.run(" ".join(commands) if len(commands) > 1 else commands[0], capture_output=True, text=True, shell=True)
         return output.stdout

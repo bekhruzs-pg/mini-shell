@@ -7,6 +7,8 @@ HISTFILE = os.path.expanduser("~/.mysh_history")
 if os.path.exists(HISTFILE):
     readline.read_history_file(HISTFILE)
 
+readline.set_completer()
+
 if __name__ == "__main__":
     handler = CommandHandler()
     while True:
