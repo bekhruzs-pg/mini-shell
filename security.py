@@ -8,8 +8,6 @@ class Security:
         self.SANDBOX_PATH = os.path.expanduser("~")
         self.ALLOWED_BUILTINS = ["ls", "dir", "echo", "pwd", "stat", "head", "tail", "cat", "cd"]
 
-        os.makedirs(self.SAFE_DIR, exist_ok=True)
-
     def filename_check(self, filename: str):
         if re.match(self.FILENAME_RE, filename):
             return True
@@ -17,6 +15,7 @@ class Security:
             raise ValueError(f"Invalid filename {filename}. Examples: [output123, output_123, output-123]")
 
     def get_safe_path(self, filename):
+        os.makedirs(self.SAFE_DIR, exist_ok=True)
         return os.path.abspath(os.path.join(self.SAFE_DIR, filename))
     
     def check_path_safety(self, commands):

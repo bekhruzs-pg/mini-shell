@@ -18,6 +18,10 @@ if __name__ == "__main__":
         command_count += 1
         command, commands = handler.command_field()
 
+        if len(command)>=1000:
+            print("Too much commad length! Must be bellow 1000 letters.")
+            continue
+
         if not command:
             continue
 
