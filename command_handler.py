@@ -37,9 +37,11 @@ class CommandHandler:
         if os.name == "nt":  # Windows
             self.ls_cmd, self.clear_cmd = "dir", "cls"
             self.home, self.user = "USERPROFILE", "USERNAME"
+            self.is_linux = False
         else:
             self.ls_cmd, self.clear_cmd = "ls", "clear"
             self.home, self.user = "HOME", "USER"
+            self.is_linux = True
         
     def command_field(self):
         prompt = os.path.basename(os.getcwd())
@@ -55,20 +57,21 @@ class CommandHandler:
         try:
             if self.security.filename_check(filename):
                 output_path = self.security.get_safe_path(filename)
-                commands = shlex.split(command)
                 fd = os.open(output_path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 600)
                 with os.fdopen(fd, "w", encoding="utf-8") as file:
                     file.write(Command(new_command, shlex.split(new_command)).get_output())
                 return f"[+] Output has written to [{output_path}]!"
         except ValueError as e:
             return f"[-] {e.args[0]}"
+        except FileExistsError as e:
+            return f"[-] File already exists!"
     
     def get_ls(self, commands: list):
         if len(commands) == 1:
-            output = sp.run(self.ls_cmd, capture_output=True, text=True, shell=True)
+            output = sp.run([self.ls_cmd] if self.is_linux else self.ls_cmd, capture_output=True, text=True, shell=(not self.is_linux))
             return output.stdout
         else:
-            output = sp.run(f"{self.ls_cmd} {commands[1]}", capture_output=True, text=True, shell=True)
+            output = sp.run([self.ls_cmd, commands[1]] if self.is_linux else " ".join(self.ls_cmd, commands[1]), capture_output=True, text=True, shell=(not self.is_linux))
             return output.stdout
 
     def get_pwd(self):
