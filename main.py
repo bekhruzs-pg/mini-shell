@@ -19,7 +19,7 @@ if __name__ == "__main__":
         command, commands = handler.command_field()
 
         if len(command)>=1000:
-            print("Too much commad length! Must be bellow 1000 letters.")
+            print("[-] Too much commad length! Must be bellow 1000 letters.")
             continue
 
         if not command:
@@ -30,7 +30,7 @@ if __name__ == "__main__":
             continue
 
         if commands[0] == "exit":
-            print("See, ya")
+            print("See, ya)")
             break
 
         print(Command(command, commands).get_output())
