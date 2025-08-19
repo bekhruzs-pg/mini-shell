@@ -108,14 +108,14 @@ class CommandHandler:
             return "Invalid key or command. Sample: [export KEY=VALUE]"
     def handle_mkdir(self, commands):
         try:
-            path = " ".join(commands[1:]).replace("\"", "") if "\"" in " ".join(commands[1:]) else commands[1:] 
+            path = " ".join(commands[1:]).replace("\"", "") if "\"" in " ".join(commands[1:]) else " ".join(commands[1:]) 
             os.mkdir(path)
             return f"New folder created! [{os.getcwd()}\\{path}]"
         except OSError:
             return f"Folder name syntax is incorrect: {path}"
     def handle_rmdir(self, commands):
         try:
-            path = " ".join(commands[1:]).replace("\"", "") if "\"" in " ".join(commands[1:]) else commands[1:] 
+            path = " ".join(commands[1:]).replace("\"", "") if "\"" in " ".join(commands[1:]) else " ".join(commands[1:]) 
             os.rmdir(path)
             return f"Folder deleted! [{os.getcwd()}\\{path}]"
         except OSError:
