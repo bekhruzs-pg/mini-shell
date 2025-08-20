@@ -23,7 +23,6 @@ class Security:
         
         for arg in args:
             path = os.path.realpath(os.path.join(os.getcwd(), arg))
-            print(os.path.commonpath([path, self.SANDBOX_PATH]))
             if os.path.commonpath([path, self.SANDBOX_PATH]) != self.SANDBOX_PATH:
                 raise PermissionError("You don't have permission to enter!")
             
